@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>
+Przykład ->pokaz formularza
+</title>
+<meta charset="utf-8">
+<style>
+     body{
+      background-image: url('wloch.png');
+      background-repeat: no-repeat;
+      background-position: center;
+  background-size: cover;
+    }
+    fieldset
+    {
+        background-color: #ffebcd;
+        width: 40%;
+        margin:auto;
+        font-weight: 200;
+    }
+    #wynik
+    {
+        font-size: 32px;
+        font-weight: bold;
+    }
+    #tlo
+    {
+                margin:auto;
+        border: white 3px solid;
+        width: 40%;
+        background-color: #ffebcd;
+    }
+</style>
+<script language="JavaScript">
+    function wypisz(dane)
+    {
+    let cena = 0;
+    const wynik = document.getElementById("wynik");
+    wynik.innerHTML  = "";
+    if(dane.zniszka.value < 0 && dane.zniszka.value > 100)
+    {
+        wynik.innerHTML  += "Nieprawidlowa zniszka";
+        return;
+    }
+    if(dane.ilosc.value <= 0)
+    {
+        wynik.innerHTML  += "<br>Nieprawidlowa ilosc";
+        return;
+    }
+    
+    wynik.innerHTML  = "Dane zamowienia:";
+    wynik.innerHTML  += "<br>" + dane.imie.value;
+    wynik.innerHTML  += "<br>" + dane.nazwisko.value;
+    wynik.innerHTML  += "<br>" + dane.telefon.value;
+    wynik.innerHTML  += "<br>" + dane.miasto.value;
+    wynik.innerHTML  += "<br>" + dane.ulica.value;
+    wynik.innerHTML  += "<br>" + dane.mieszkanie.value;
+    if(document.getElementById("margherita").checked)
+    {
+        cena = 22;
+    }
+    else if(document.getElementById("pepperoni").checked)
+    {
+        cena = 25;
+    }
+    else if(document.getElementById("hawajska").checked)
+    {
+        cena = 24;
+    }
+
+    if(document.getElementById("srednia").checked)
+    {
+        cena = cena * 1.2;
+    }
+    else if(document.getElementById("duza").checked)
+    {
+        cena = cena * 1.4;
+    }
+    else if(document.getElementById("bduza").checked)
+    {
+        cena = cena * 1.75;
+    }
+    cena = cena * dane.ilosc.value;
+    cena = cena * (1 - (dane.zniszka.value/100))
+    cena = cena * 1.08;
+    wynik.innerHTML  += "<br> Cena zamówienia:" + cena.toFixed(2);
+    }
+    </script>
+</head>
+<body>
+<form name="pizzeria">
+<fieldset>
+<legend>Dane Klienta:</legend>
+<label for="imie">Imie klienta:</label><input type="text" id="imie" name="imie"><br>
+<label for="nazwisko">Nazwisko klienta:</label><input type="text" id="nazwisko" name="nazwisko"><br>
+<label for="telefon">Telefon klienta:</label><input type="text" id="telefon" name="telefon"><br>
+<label for="miasto">Miasto</label><input type="text" id="miasto" name="miasto"><br>
+<label for="ulica">Ulica</label><input type="text" id="ulica" name="ulica"><br>
+<label for="mieszkanie">Numer mieszkania</label><input type="text" id="mieszkanie" name="mieszkanie"><br>
+</fieldset>
+<fieldset>
+<legend>Zamówienie:</legend>
+ <p>Rodzaj pizzy</p>
+ <label for="margherita">Margherita(22zł)</label><input type="radio" id="margherita" name="rodzaj" checked><br>
+ <label for="pepperoni">pepperoni(25zł)</label><input type="radio" id="pepperoni" name="rodzaj"><br>
+ <label for="hawajska">Hawajska(24zł)</label><input type="radio" id="hawajska" name="rodzaj">
+ <p>Wielkość pizzy</p>
+ <label for="mala">Mała 24cm</label><input type="radio" id="mala" name="wielkosc" checked><br>
+ <label for="sredia">Średnia 28cm(cena + 20%)</label><input type="radio" id="srednia" name="wielkosc"><br>
+ <label for="duza">Duża 32cm(cena + 40%)</label><input type="radio" id="duza" name="wielkosc"><br>
+ <label for="bduza">Bardza Duża 40cm(cena + 75%)</label><input type="radio" id="bduza" name="wielkosc"><br>
+ <p>Ilosc pizzy</p>
+ <label for="ilosc">Ilosc:</label><input type="text" id="ilosc" name="ilosc" value="0"><br>
+ <p>Zniszka</p>
+ <label for="zniszka">Wielkość zniszki:</label><input type="text" id="zniszka" name="zniszka" value="0"><br>
+ <p>Do Ceny jest wliczony 8% podatek vat</p>
+
+<input type="button" value="Złóż zamówienie" onclick="wypisz(this.form)">
+</fieldset>
+</form>
+<div id="tlo">
+<p id="wynik"></p>
+</div>
+</body>
+</html>
