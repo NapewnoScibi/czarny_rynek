@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tytul</title>
+    <style>
+        canvas
+        {
+            border: 10px black solid;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="800" ></canvas>
+</body>
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    ctx.fillStyle = "#87CEEB";
+    ctx.fillRect(0, 0, 800, 800);
+
+    for(let i = 0 ; i < 5 ;i++)
+    {
+        ctx.beginPath();
+        ctx.arc(400+i, 700, 350, Math.PI * 1.1 , Math.PI * 1.9);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        ctx.beginPath();
+        ctx.bezierCurveTo(67+i, 588, 65+i, 620, 120+i, 750);
+        ctx.bezierCurveTo(120+i, 750 , 130+i , 780 , 150+i , 800);
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.bezierCurveTo(733-i, 588, 735-i, 620, 678-i, 750);
+        ctx.bezierCurveTo(678-i, 750 , 668-i , 780 , 648-i , 800);
+        ctx.stroke();
+        ctx.closePath();
+    }
+
+    ctx.beginPath();
+    ctx.moveTo(648 , 800);
+    ctx.lineTo(648, 450);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(578 , 800);
+    ctx.lineTo(578, 395);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(508 , 800);
+    ctx.lineTo(508, 367);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(438 , 800);
+    ctx.lineTo(438, 353);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(368 , 800);
+    ctx.lineTo(368, 350);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(298 , 800);
+    ctx.lineTo(298, 365);
+    ctx.closePath();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(228 , 800);
+    ctx.lineTo(228, 395);
+    ctx.closePath();
+    ctx.stroke();
+
+
+    ctx.beginPath();
+    ctx.moveTo(158 , 800);
+    ctx.lineTo(158, 450);
+    ctx.closePath();
+    ctx.stroke();
+
+
+    ctx.beginPath();
+    ctx.moveTo(158 , 800);
+    ctx.lineTo(158, 450);
+
+    for(let i = 0 ; i < 14 ; i++)
+    {
+        if(i % 2 == 1)
+        {
+            ctx.fillStyle = "#FF0000";
+            ctx.beginPath();
+            ctx.moveTo(67+(i*50), 588);
+            ctx.lineTo(67+50+(i*50),588-50);
+            ctx.lineTo(67+(i*50),588-50);
+            ctx.lineTo(67+(i*50),588);
+            ctx.fill()
+            ctx.stroke();
+        }
+        else
+        {
+            ctx.fillStyle = "#ffff00 ";
+            ctx.beginPath();
+            ctx.moveTo(67+(i*50),588-50);
+            ctx.lineTo(67+(i*50)+50,588-50);
+            ctx.lineTo(67+(i*50)+50,588);
+            ctx.lineTo(67+(i*50),588-50);
+            ctx.fill()
+            ctx.stroke();
+        }
+
+    }
+</script>
+</html>
