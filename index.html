@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Darmowy Kurs CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet">
+
+    <style>
+
+        a
+        {
+        animation: miganie 1s linear infinite;
+        }
+
+        @keyframes miganie
+        {
+            50%
+            {
+                opacity: 0;
+            }
+            100%
+            {
+                opacity: 1;
+            }
+        }
+
+        *
+        {
+            letter-spacing: 3px;
+            font-family: 'Gideon Roman', serif;
+        }
+
+      ol
+      {
+        list-style-type:none;
+        padding:0;
+        margin:0;
+        background-color:#FFF;
+        font-size:18px;
+        height:2em;
+        line-height:2em;
+        text-align:center;
+      }
+
+      ol a
+      {
+        display:block;
+        text-decoration:none;
+        color: #C78880;
+        padding:0 5px;
+      }
+
+      ol > li
+      {
+        float:left;
+        width:150px;
+        margin-left:1px;
+        background-color:#F7E7D1;
+        height:2em;
+      }
+      #drugie > * > * , #drugie
+      {
+        border: black solid 3px;
+        padding-left: 10px;
+      }
+      #pierwsze > * > * , #pierwsze
+      {
+      border:3px solid black;
+      border-radius:50%;
+      -webkit-border-radius:50%;
+      padding-left: 5px;
+      }
+
+      ol > li:first-child
+      {
+        margin-left:0;
+      }
+
+      ol > li:hover
+      {
+        background-color:#FAEABB;
+      }
+
+      ol > li:hover > a
+      {
+        color:#B0A695;
+      }
+
+      ol > li:hover > ul
+      {
+        display:block;
+      }
+
+      ol > li > ul {
+        display:none;
+        list-style-type:none;
+        padding:0;
+        margin:0;
+
+      }
+
+
+      ol > li > ul > li
+      {
+        position:relative;
+        background-color:#F7E7D1;
+        background: url(marek.jpg);
+        background-repeat: no-repeat;
+        background-size: contain ;
+      }
+
+
+      ol > li > ul > li > a
+      {
+        border-top:1px solid #FFF;
+      }
+
+
+      ol > li > ul > li:hover
+      {
+        background-color:#FAEABB;;
+      }
+
+      ol > li > ul > li:hover > a
+      {
+        color:#B0A695;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <ol>
+      <li id="pierwsze"><a href="#">menu1</a>
+        <ul>
+          <li><a href="#">cos - 1</a></li>
+          <li><a href="#">cos - 2</a></li>
+          <li><a href="#">cos - 3</a></li>
+        </ul>
+      </li>
+
+      <li id="drugie"><a href="#">menu2</a>
+        <ul>
+          <li><a href="#">cos - 1</a></li>
+          <li><a href="#">cos - 2</a></li>
+          <li><a href="#">cos - 3</a></li>
+        </ul>
+      </li>
+    </ol>
+
+  </body>
+</html>
